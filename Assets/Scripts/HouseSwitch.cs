@@ -8,9 +8,9 @@ public class HouseSwitch : MonoBehaviour
     [SerializeField] private GameObject houseLightOff;
     [SerializeField] private ParticleSystem houseSmoke;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.tag == "Player")
+        if (other.GetComponent<Player>() != null)
         {
             houseLightOn.SetActive(false);
             houseLightOff.SetActive(true);
@@ -18,9 +18,9 @@ public class HouseSwitch : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.tag == "Player")
+        if (other.GetComponent<Player>() != null)
         {
             houseLightOn.SetActive(true);
             houseLightOff.SetActive(false);

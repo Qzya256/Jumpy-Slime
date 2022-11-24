@@ -37984,8 +37984,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626809162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0006, y: 3.1499977, z: 0}
-  m_LocalScale: {x: 2.236225, y: 1.9736627, z: 1.9736627}
+  m_LocalPosition: {x: 0.00059999, y: 3.1499977, z: 0}
+  m_LocalScale: {x: 2.4878001, y: 1.9736627, z: 1.9736627}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 367985406}
@@ -62684,7 +62684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06e4035ce1e747418ac858d419db2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController: {fileID: 11620402}
+  player: {fileID: 11620402}
   sfxAudioSourse: {fileID: 1507201761}
   fallClip: {fileID: 8300000, guid: e3dd2f76b5adba24e90f9d7f3c5f00ac, type: 3}
 --- !u!1 &1271816318

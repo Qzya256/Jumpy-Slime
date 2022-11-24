@@ -10,22 +10,17 @@ public class CloudGeneratorScript : MonoBehaviour
 
     [SerializeField] private GameObject endPoint;
 
-
     Vector3 startPos;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
         Prewarm();
         Invoke("AttemptSpawn", spawnInterval);
-
     }
 
     void SpawnCloud(Vector3 startPos)
     {
-        
         int randomIndex = UnityEngine.Random.Range(0, clouds.Length);
         GameObject cloud = Instantiate(clouds[randomIndex]);
 
@@ -38,15 +33,12 @@ public class CloudGeneratorScript : MonoBehaviour
 
         float speed = UnityEngine.Random.Range(0.1f, 0.3f);
         cloud.GetComponent<CloudScript>().StartFloating(speed, endPoint.transform.position.x);
-
-
     }
 
     void AttemptSpawn()
     {
         //check some things.
         SpawnCloud(startPos);
-
         Invoke("AttemptSpawn", spawnInterval);
     }
 

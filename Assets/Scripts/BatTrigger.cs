@@ -8,7 +8,7 @@ public class BatTrigger : MonoBehaviour
     [SerializeField] private bool batTrigger; //I decided to use this script for other objects as well
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<CharacterController>() != null && batTrigger)
+        if (other.GetComponent<Player>() != null && batTrigger)
         {
             batAnimator.SetBool("Fly", true);
             Destroy(batAnimator.gameObject, 3f);
@@ -16,7 +16,7 @@ public class BatTrigger : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<CharacterController>() != null && !batTrigger)
+        if (other.GetComponent<Player>() != null && !batTrigger)
         {
             batAnimator.enabled = true;
             Destroy(batAnimator.gameObject, 10f);

@@ -11,7 +11,7 @@ public class GameOverTrigger : MonoBehaviour
     [SerializeField] private GameObject ControlButtons;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<CharacterController>() != null)
+        if (other.GetComponent<Player>() != null)
         {
             other.transform.position = slimTransform.position;
             other.gameObject.SetActive(false);
@@ -19,7 +19,6 @@ public class GameOverTrigger : MonoBehaviour
             GameOverAnimator.SetBool("Run", true);
             GameOverText.SetActive(true);
             ControlButtons.SetActive(false);
-
         }
     }
 

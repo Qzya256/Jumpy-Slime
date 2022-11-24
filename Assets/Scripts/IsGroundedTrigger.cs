@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IsGroundedTrigger : MonoBehaviour
 {
-    [SerializeField] private CharacterController characterController;
+    [SerializeField] private Player player;
     [SerializeField] private AudioSource sfxAudioSourse;
     [SerializeField] private AudioClip fallClip;
 
@@ -19,7 +19,7 @@ public class IsGroundedTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            characterController.IsGrounded = true;
+            player.IsGrounded = true;
         }
     }
 
@@ -27,7 +27,7 @@ public class IsGroundedTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            characterController.IsGrounded = false;
+            player.IsGrounded = false;
         }
     }
 }

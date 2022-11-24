@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CloudScript : MonoBehaviour
 {
-
     private float _speed;
     private float _endPosX;
 
@@ -21,6 +20,5 @@ public class CloudScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
 }

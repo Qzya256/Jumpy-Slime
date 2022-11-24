@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class CharacterController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private Animator slimeAnimator;
-    private Rigidbody2D characterRigidbody;
+    private Rigidbody2D playerRigidbody;
     private bool getReadyToJumpBoolean;
     private bool leftMooveBoolean;
     private bool righMooveBoolean;
@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
 
     private void Start()
     {
-        characterRigidbody = transform.GetComponent<Rigidbody2D>();
+        playerRigidbody = transform.GetComponent<Rigidbody2D>();
         slimeAnimator = transform.GetComponent<Animator>();
     }
     void FixedUpdate()
@@ -35,7 +35,7 @@ public class CharacterController : MonoBehaviour
         //we determine whether the player is on the ground, if on the ground, then we allow him to prepare for the jump
         if (!IsGrounded)
         {
-            if (characterRigidbody.velocity.y < 0)
+            if (playerRigidbody.velocity.y < 0)
             {
                 slimeAnimator.SetBool("ReadyToJump", false);
                 slimeAnimator.SetBool("Falling", true);
@@ -107,18 +107,18 @@ public class CharacterController : MonoBehaviour
     public void Jump()
     {
         slimeAnimator.SetBool("ReadyToJump", false);
-        characterRigidbody.AddForce(Vector2.up * jumpForce);
+        playerRigidbody.AddForce(Vector2.up * jumpForce);
         if (jumpForce > (maxJumpForce/3f))
         {
             sfxAudioSourse.PlayOneShot(jumpClip);
         }
         if (leftMooveBoolean)
         {
-            characterRigidbody.AddForce(Vector2.left/directionJumpForce * jumpForce);
+            playerRigidbody.AddForce(Vector2.left/directionJumpForce * jumpForce);
         }
         else if (righMooveBoolean)
         {
-            characterRigidbody.AddForce(Vector2.right/directionJumpForce * jumpForce);
+            playerRigidbody.AddForce(Vector2.right/directionJumpForce * jumpForce);
         }
         jumpForce = 0;
         getReadyToJumpBoolean = false;
